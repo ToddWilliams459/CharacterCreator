@@ -4,7 +4,9 @@
   "description": "character creator project rich media 2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "eslint ./server --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server/app.js"
   },
   "repository": {
     "type": "git",
@@ -16,20 +18,22 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "helmet": "^3.9.0",
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
     "body-parser": "^1.18.2",
     "compression": "^1.7.1",
     "connect-redis": "^3.3.2",
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",
-    "eslint": "^4.11.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
-    "helmet": "^3.9.0",
     "mongoose": "^4.13.4",
-    "nodemon": "^1.12.1",
     "serve-favicon": "^2.4.5",
     "underscore": "^1.8.3"
   }
