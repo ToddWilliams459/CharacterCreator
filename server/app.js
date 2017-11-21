@@ -14,7 +14,7 @@ const app = express();
 
 router(app);
 
-app.use('/assets', express.static(path.resolve(`${__dirname}/../client`)));
+app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted`)));
 app.engine('handlebars', expressHandlebars());
 app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/../views`);

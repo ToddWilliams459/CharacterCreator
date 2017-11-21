@@ -5,11 +5,33 @@
  	<script crossorigin src="https://unpkg.com/react@15/dist/react.min.js"></script>
  	<script crossorigin src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
  	<script crossorigin src="https://unpkg.com/prop-types/prop-types.min.js"></script>
- 	<script src="/assets/page1.js"></script>
+ 	<script src="/assets/pageBundle1.js"></script>
+ 	<script>
+ 		window.onload = init;
+
+ 		function init(){
+ 			var c = document.getElementById("myCanvas");
+ 			var ctx = c.getContext("2d");
+ 			var image= document.getElementById("head")
+ 			ctx.drawImage(image,10,10)
+
+ 			ctx.moveTo(0,0);
+ 			ctx.lineTo(200,100);
+ 			ctx.stroke();
+ 		}
+
+ 	</script>
  </head> 
 <body>
+
+	<!-- html body -->
 	<div id="app">
 
 	</div>
+	<canvas id="myCanvas" width="200" height="100">
+
+	</canvas>
+	<img id="head" src="../images/monster1.png" alt="monster body">
 </body>
 </html>
+

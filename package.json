@@ -4,6 +4,7 @@
   "description": "character creator project rich media 2",
   "main": "index.js",
   "scripts": {
+    "buildPage1": "babel ./client/page1.js --presets react --out-file ./hosted/pageBundle1.js",
     "pretest": "eslint ./server --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/app.js"
