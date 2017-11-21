@@ -8,16 +8,74 @@
  	<script src="/assets/pageBundle1.js"></script>
  	<script>
  		window.onload = init;
+ 		//variables for the arrays of each name and also the iterators of each array
+ 		var bodyArr,lArmArr,rArmArr,lLegArr,rLegArr;
+ 		var bodI,laI,raI,llI,rlI;
+ 		var c,ctx;
+ 		var image;
+
+ 		function click(){
+ 			bodI += 1;
+ 			image.src = '/assets/' + bodyArr[bodI];
+ 			image.onload = () => {
+ 			//need to rerender canvas also a render all function might be good 
+ 			ctx.drawImage(image,50,50);
+ 			}
+ 			document.getElementById("testText").innerHTML = "HelloWorld";
+ 		}
 
  		function init(){
- 			var c = document.getElementById("myCanvas");
- 			var ctx = c.getContext("2d");
- 			var image= document.getElementById("head")
- 			ctx.drawImage(image,10,10)
+ 			bodyArr = ["monster1.png","monster2.png"];
+ 			lArmArr = ["monsterLA1.png"];
+ 			rArmArr = ["monsterRA1.png"];
+ 			lLegArr = ["monsterLL1.png"];
+ 			rLegArr = ["monsterRL1.png"];
+ 			c = document.getElementById("myCanvas");
+ 			ctx = c.getContext("2d");
+ 			
 
- 			ctx.moveTo(0,0);
- 			ctx.lineTo(200,100);
- 			ctx.stroke();
+
+ 			//Image Left Arm
+ 			var imageLA = new Image();
+ 			laI = 0;
+ 			imageLA.src = '/assets/' + lArmArr[laI];
+			imageLA.onload = () => {
+				ctx.drawImage(imageLA, 0, 50);
+ 			}
+
+ 			//Image Right Arm
+ 			var imageRA = new Image();
+ 			raI = 0;
+ 			imageRA.src = '/assets/' + rArmArr[raI];
+			imageRA.onload = () => {
+				ctx.drawImage(imageRA, 100, 50);
+ 			}
+
+ 			//Image Left Leg
+ 			var imageLL = new Image();
+ 			llI = 0;
+ 			imageLL.src = '/assets/' + lLegArr[llI];
+			imageLL.onload = () => {
+				ctx.drawImage(imageLL, 40, 100);
+ 			}
+
+  			//Image Right Leg
+ 			var imageRL = new Image();
+ 			rlI = 0;
+ 			imageRL.src = '/assets/' + rLegArr[rlI];
+			imageRL.onload = () => {
+				ctx.drawImage(imageRL, 60, 100);
+ 			}
+
+ 			 //Image Body
+ 			image = new Image();
+ 			bodI = 0;
+ 			image.src = '/assets/' + bodyArr[bodI];
+			image.onload = () => {
+				ctx.drawImage(image, 50, 50);
+ 			}
+
+ 			document.getElementById("test").onclick = function() {click()};
  		}
 
  	</script>
@@ -28,10 +86,14 @@
 	<div id="app">
 
 	</div>
-	<canvas id="myCanvas" width="200" height="100">
+	<canvas id="myCanvas" width="200" height="200">
 
 	</canvas>
-	<img id="head" src="../images/monster1.png" alt="monster body">
+
+	<button id="test"> Change Body </button>
+
+	<p id="testText"> test text </p>
+	<!--<img id="head" src="/assets/monster1.png" alt="monster body">-->
 </body>
 </html>
 
